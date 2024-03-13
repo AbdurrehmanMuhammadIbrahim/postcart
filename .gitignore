@@ -5,7 +5,12 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-/.env
+
+
+#Secret
+.env
+
+
 # testing
 /coverage
 
