@@ -5,6 +5,12 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
+
+
+function truncateText(text, maxLength) {
+  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+}
+
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
   const pathName = usePathname();
@@ -13,11 +19,11 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const [copied, setCopied] = useState("");
 
   const handleProfileClick = () => {
-    // console.log(post);
+    console.log(post);
 
-    // if (post.creator._id === session?.user.id) return router.push("/profile");
+    if (post.creator._id === session?.user.id) return router.push("/profile");
 
-    // router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
 
   const handleCopy = () => {
@@ -26,12 +32,17 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
     setTimeout(() => setCopied(false), 3000);
   };
 
+  const truncatedUsername = truncateText(post.creator.username, 10);
+  const truncatedEmail = truncateText(post.creator.email, 15);
+
+
+
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
         <div
           className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
-          // onClick={handleProfileClick}
+          onClick={handleProfileClick}
         >
           <Image
             src={post.creator.image}
@@ -43,10 +54,13 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
           <div className='flex flex-col'>
             <h3 className='font-satoshi font-semibold text-gray-900'>
-              {post.creator.username}
+              {/* {post.creator.username} */}
+              {truncatedUsername}
             </h3>
             <p className='font-inter text-sm text-gray-500'>
-              {post.creator.email}
+              {/* {post.creator.email} */}
+
+{truncatedEmail}
             </p>
           </div>
         </div>
