@@ -34,7 +34,7 @@ setUpProviders();
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Promptopia</p>
+        <p className='bg-gradient-to-r from-blue-200 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text logo_text'>Promptopia</p>
       </Link>
 
       {/* Desktop Navigation */}
@@ -49,10 +49,14 @@ setUpProviders();
             <Link href='/create-prompt' className='black_btn'>
               Create Post
             </Link>
+<Link href='/' onClick={signOut } className='outline_btn'>
 
-            <button type='button' onClick={signOut} className='outline_btn'>
+{/* <button type='button' > */}
               Sign Out
-            </button>
+            {/* </button> */}
+
+</Link>
+          
 
             <Link href='/profile'>
               <Image
@@ -123,6 +127,7 @@ setUpProviders();
                   onClick={() => {
                     setToggleDropdown(false);
                     signOut();
+                   href='/'
                   }}
                   className='mt-5 w-full black_btn'
                 >
