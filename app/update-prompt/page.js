@@ -59,7 +59,9 @@ try {
 
 }
 
-
+if (!promptId) {
+  return <div>Loading...</div>; // Early return if promptId is missing
+}
   return (
     <Suspense fallback={<div>Loading...</div>}>
 
