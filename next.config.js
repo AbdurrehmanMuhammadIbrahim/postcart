@@ -9,6 +9,7 @@ const nextConfig = {
     },
     eslint:{
       ignoreDuringBuilds:true,
+      missingSuspenseWithCSRBailout: false
   },
     webpack(config) {
       config.experiments = {
