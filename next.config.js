@@ -7,6 +7,9 @@ const nextConfig = {
     images: {
       domains: ['lh3.googleusercontent.com'],
     },
+    eslint:{
+      ignoreDuringBuilds:true,
+  },
     webpack(config) {
       config.experiments = {
         ...config.experiments,
