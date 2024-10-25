@@ -1,6 +1,6 @@
 "use client";
 
-import { useState,useEffect } from 'react'
+import { useState,useEffect,Suspense } from 'react'
 import { useRouter,useSearchParams } from 'next/navigation'
 
 import Form from "@components/Form";
@@ -61,6 +61,8 @@ try {
 
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+
     <div>
       <Form
       type="Edit"
@@ -70,6 +72,7 @@ try {
       handleSubmit= {UpdatePrompt}
       />
     </div>
+    </Suspense>
   )
 }
 
