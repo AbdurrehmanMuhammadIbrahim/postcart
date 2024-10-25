@@ -26,10 +26,37 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
 
+  // const handleCopy = () => {
+  //   setCopied(post.prompt);
+  //   navigator.clipboard.writeText(post.prompt);
+  //   setTimeout(() => setCopied(false), 3000);
+  // };
+
   const handleCopy = () => {
-    setCopied(post.prompt);
-    navigator.clipboard.writeText(post.prompt);
-    setTimeout(() => setCopied(false), 3000);
+    if (navigator?.clipboard) {
+      setCopied(post.prompt);
+      navigator.clipboard.writeText(post.prompt)
+        .then(() => {
+          setTimeout(() => setCopied(false), 3000);
+        })
+        .catch(err => {
+          console.error("Failed to copy text: ", err);
+        });
+    } else {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = post.prompt;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        setCopied(post.prompt);
+        setTimeout(() => setCopied(false), 3000);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+      document.body.removeChild(textArea);
+    }
   };
 
   const truncatedUsername = truncateText(post.creator.username, 10);
@@ -90,7 +117,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
       </p>
 
       {session?.user.id === post.creator._id && pathName === "/profile" && (
-        <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
+        <div className='mt-5 flex-end gap-4 border-t border-gray-100 pt-3'>
           <p
             className='font-inter text-sm bg-gradient-to-r from-blue-200 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text cursor-pointer'
             onClick={handleEdit}

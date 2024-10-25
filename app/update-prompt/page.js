@@ -39,7 +39,7 @@ setSubmitting(true);
 if (!promptId) return alert("Missing PromptId!");
 
 try {
-   const response =await fetch ('/api/prompt/new',
+   const response =await fetch (`/api/prompt/${promptId}`,
    {
     method:"PATCH",
     body:JSON.stringify({

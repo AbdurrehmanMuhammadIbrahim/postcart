@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      columns: {
+        3: '3', // Add custom column count
+      },
       fontFamily: {
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],

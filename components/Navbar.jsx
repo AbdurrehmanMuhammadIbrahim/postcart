@@ -8,7 +8,9 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 const Nav = () => {
   const { data: session } = useSession();
 // const isUserLogin = true;
-
+function abd() {
+  alert("Hello! I am an alert box!");
+}
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
@@ -28,13 +30,13 @@ setUpProviders();
     <nav className='flex-between w-full mb-16 pt-3'>
       <Link href='/' className='flex gap-2 flex-center'>
         <Image
-          src='/assets/images/logo.svg'
+          src='/assets/images/logo.png'
           alt='logo'
           width={30}
           height={30}
           className='object-contain'
         />
-        <p className='bg-gradient-to-r from-blue-200 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text logo_text'>Promptopia</p>
+        <p className='logo_text'>PostCart</p>
       </Link>
 
       {/* Desktop Navigation */}
@@ -145,10 +147,12 @@ setUpProviders();
                   key={provider.name}
                   onClick={() => {
                     
-                    // signIn(provider.id);
+                    signIn(provider.id);
                   }}
                   className='black_btn'
+             
                 >
+                  
                   Sign in
                 </button>
               ))}

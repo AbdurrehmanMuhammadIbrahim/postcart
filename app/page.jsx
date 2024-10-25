@@ -8,7 +8,7 @@ const Home = () => (
       <span className='bg-gradient-to-r from-blue-200 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-center'> AI-Powered Prompts</span>
     </h1>
     <p className='desc text-center'>
-      Promptopia is an open-source AI prompting tool for modern world to
+        PostCart is an open-source AI prompting tool for modern world to
       discover, create and share creative prompts
     </p>
 

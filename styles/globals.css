@@ -78,7 +78,7 @@
 }
 
 .black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center  text-sm font-inter flex items-center justify-center;
 }
 
 .outline_btn {
@@ -98,7 +98,7 @@
 }
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent line-clamp-1;
 }
 
 .desc {
@@ -118,12 +118,13 @@
 }
 
 .prompt_layout {
-  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+  /* @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3; */
+  @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 
 }
 
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply mt-16 mx-auto w-full flex justify-center items-center flex-col gap-2 ;
 }
 
 /* Form Component */
@@ -132,12 +133,12 @@
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0 ;
 }
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+  @apply max-sm:hidden font-satoshi font-semibold text-lg bg-gradient-to-r from-indigo-400 via-green-500 to-blue-200 inline-block text-transparent bg-clip-text;
 }
 
 .dropdown {
@@ -150,7 +151,7 @@
 
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter lg:w-[360px] w-full h-fit;
 }
 
 .flex-center {
