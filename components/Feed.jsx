@@ -43,7 +43,7 @@ const Feed = () => {
     };
     fetchPosts();
 
-  }, []);
+  });
 
   
   const filterPrompts = (searchtext) => {
